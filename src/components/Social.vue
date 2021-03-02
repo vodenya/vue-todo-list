@@ -5,7 +5,7 @@
         <ShareNetwork
           network="telegram"
           title="Hello! Create your todo list."
-          url="https://vue-todo.tk"
+          url="https://vue-todo-list.tk/"
         >
           <i class="fab fa-telegram"></i>
         </ShareNetwork>
@@ -13,7 +13,7 @@
       <a href="#" class="facebook-btn">
         <ShareNetwork
           network="facebook"
-          url="https://vue-todo.tk"
+          url="https://vue-todo-list.tk/"
           title="Hello! Create your todo list."
         >
           <i class="fab fa-facebook" />
@@ -22,7 +22,7 @@
       <a href="#" class="linkedin-btn">
         <ShareNetwork
           network="linkedin"
-          url="https://vue-todo.tk"
+          url="https://vue-todo-list.tk/"
           title="Hello! Create your todo list."
         >
           <i class="fab fa-linkedin"></i>
@@ -31,7 +31,7 @@
       <a href="#" class="whatsapp-btn">
         <ShareNetwork
           network="whatsapp"
-          url="https://vue-todo.tk"
+          url="https://vue-todo-list.tk/"
           title="Hello! Create your todo list."
         >
           <i class="fab fa-whatsapp"></i>
@@ -40,7 +40,7 @@
       <a href="#" class="twitter-btn">
         <ShareNetwork
           network="twitter"
-          url="https://vue-todo.tk"
+          url="https://vue-todo-list.tk/"
           title="Hello! Create your todo list."
         >
           <i class="fab fa-twitter"></i>
