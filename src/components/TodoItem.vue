@@ -2,20 +2,17 @@
   <div>
     <div class="task" :class="{ checked: todo.checked }">
       <a @click="checkTask"></a>
-      <span v-if="!editing" @click="editableTask()">{{ todo.todo }}</span>
+      <span v-if="!editing" @click="editableTask">{{ todo.todo }}</span>
       <input
         class="input-editing"
         v-else
         type="text"
         v-model="todo.todo"
-        @blur="doneEdit()"
-        @keyup.enter="doneEdit()"
-        @keyup.esc="doneEdit()"
+        @blur="doneEdit"
+        @keyup.enter="doneEdit"
+        @keyup.esc="doneEdit"
       />
-      <button
-        class="close-image"
-        @click="openModal"
-      >
+      <button class="close-image" @click="openModal">
         <img
           src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png"
         />
@@ -25,7 +22,7 @@
       v-if="showModal"
       :todo="todo"
       @remove-task="removeTask"
-      @close-modal="showModal = false"
+      @close-modal="closeModal"
     />
   </div>
 </template>
@@ -34,15 +31,16 @@
 import Modal from "@/components/Modal";
 
 export default {
+  name: "TodoItem",
   props: {
     todo: Object,
     index: Number,
   },
-  name: "TodoItem",
   data() {
     return {
       showModal: false,
       editing: false,
+      disableDraggable: true,
     };
   },
   components: {
@@ -59,7 +57,7 @@ export default {
   },
   methods: {
     openModal() {
-      document.body.style.overflow = "hidden";
+      this.$emit("disable-drag");
       this.showModal = true;
     },
     checkTask() {
@@ -79,6 +77,19 @@ export default {
     removeTask() {
       this.showModal = false;
       this.$emit("remove-task", this.index, this.findContainer);
+    },
+    closeModal() {
+      this.showModal = false;
+      this.$emit("enable-drag");
+    },
+  },
+  watch: {
+    showModal: function () {
+      if (this.isModalVisible) {
+        document.body.style.overflow = "hidden";
+        return;
+      }
+      document.body.style.overflow = "auto";
     },
   },
 };
@@ -118,6 +129,10 @@ export default {
     border: 1px solid #7fffd4;
     border-radius: 50%;
     cursor: pointer;
+    @media (max-width: 500px) {
+      width: 24px;
+      height: 24px;
+    }
     &:hover {
       background: #7fffd450;
       transition: all 0.3s ease;
@@ -139,6 +154,10 @@ export default {
     width: 24px;
     background-color: rgb(247, 247, 247);
     pointer-events: none;
+    @media (max-width: 500px) {
+      width: 21px;
+      height: 22px;
+    }
   }
 }
 </style>

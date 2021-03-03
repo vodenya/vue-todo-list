@@ -22,7 +22,6 @@ export default {
     TodoList,
     Social,
   },
-
 };
 </script>
 

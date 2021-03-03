@@ -36,7 +36,6 @@ export default {
       this.$emit("close-modal");
     },
     yesButton() {
-      document.body.style.overflow = "";
       this.$emit("remove-task");
     },
   },
