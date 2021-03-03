@@ -15,7 +15,6 @@
       <button
         class="close-image"
         @click="openModal"
-        :style="{ overflow: 'hidden' }"
       >
         <img
           src="https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png"
@@ -60,6 +59,7 @@ export default {
   },
   methods: {
     openModal() {
+      document.body.style.overflow = "hidden";
       this.showModal = true;
     },
     checkTask() {
@@ -113,15 +113,11 @@ export default {
     }
   }
   a {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     border: 1px solid #7fffd4;
     border-radius: 50%;
     cursor: pointer;
-    @media (max-width: 500px) {
-      width: 23px;
-      height: 23px;
-    }
     &:hover {
       background: #7fffd450;
       transition: all 0.3s ease;
@@ -139,8 +135,8 @@ export default {
   }
   .close-image img {
     display: block;
-    height: 20px;
-    width: 19px;
+    height: 25px;
+    width: 24px;
     background-color: rgb(247, 247, 247);
     pointer-events: none;
   }

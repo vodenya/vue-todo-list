@@ -158,6 +158,7 @@ export default {
     removeTodo(index, type) {
       const toDoList = type === "need" ? this.todoList : this.completedList;
       toDoList.splice(index, 1);
+      document.body.style.overflow = "";
     },
     onMove({ relatedContext, draggedContext }) {
       const relatedElement = relatedContext.element;
@@ -430,11 +431,18 @@ export default {
   }
   .unchecked-container,
   .checked-container {
-    padding: 0.1rem;
-    .ghost {
-      background-color: rgb(238, 238, 238);
-      box-shadow: 5px 5px 5px -1px rgb(0, 0, 0, 0.14);
-    }
+    min-height: 3rem;
+  }
+  .ghost {
+    background-color: rgb(238, 238, 238);
+    box-shadow: 5px 5px 5px -1px rgb(0, 0, 0, 0.14);
+  }
+  .flip-list-move {
+    transition: transform 0.5s;
+  }
+
+  .no-move {
+    transition: transform 0s;
   }
 }
 </style>

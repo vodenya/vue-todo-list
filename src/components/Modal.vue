@@ -14,11 +14,10 @@
           <button
             class="modal-btn"
             @click="yesButton"
-            :style="{ overflow: '' }"
           >
             Yes
           </button>
-          <button class="modal-btn" @click="noButton" :style="{ overflow: '' }">
+          <button class="modal-btn" @click="noButton" >
             No
           </button>
         </slot>
@@ -37,6 +36,7 @@ export default {
       this.$emit("close-modal");
     },
     yesButton() {
+      document.body.style.overflow = "";
       this.$emit("remove-task");
     },
   },
@@ -53,6 +53,9 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
+  @media (max-width: 500px) {
+    border-radius: 12px;
+  }
   .delete-modal {
     position: absolute;
     border: 1px solid #d3d3d3;
@@ -78,7 +81,6 @@ export default {
       margin-top: 20px;
       display: grid;
       grid-template-columns: min-content min-content;
-
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
@@ -98,6 +100,9 @@ export default {
         width: 120px;
         font-size: 16px;
         cursor: pointer;
+        @media (max-width: 500px) {
+          width: 80px;
+        }
       }
     }
     .gap {

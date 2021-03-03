@@ -3,12 +3,10 @@
     <Social />
     <TodoList />
     <footer>
+      <div class="block"></div>
       <div class="copyright">
         <span>© 2021 </span>
         <a href="https://digitalidea.studio/" target="_blank"> Digital Idea</a>
-      </div>
-      <div class="block">
-        <p>1</p>
       </div>
     </footer>
   </div>
@@ -97,7 +95,7 @@ footer a {
 }
 
 .block {
-  display: none;
+  height: 2rem;
 }
 
 @media (max-width: 500px) {
