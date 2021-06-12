@@ -98,7 +98,7 @@ export default {
 <style lang="scss" scoped>
 .task {
   display: grid;
-  grid-template-columns: 40px auto 30px;
+  grid-template-columns: min-content auto min-content;;
   grid-gap: 15px;
   justify-items: baseline;
   align-items: center;
@@ -106,9 +106,12 @@ export default {
   margin-bottom: 5px;
   cursor: move;
   @media (max-width: 500px) {
-    display: grid;
-    grid-template-columns: 30px auto 23px;
+  padding: 0;
+  margin-bottom: 8px;
     grid-gap: 10px;
+  }
+  & span {
+    text-align: left;
   }
   &.checked {
     text-decoration: line-through;
@@ -155,8 +158,8 @@ export default {
     background-color: rgb(247, 247, 247);
     pointer-events: none;
     @media (max-width: 500px) {
-      width: 21px;
-      height: 22px;
+      width: 18px;
+      height: 20px;
     }
   }
 }

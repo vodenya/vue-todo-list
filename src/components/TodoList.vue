@@ -12,7 +12,7 @@
 
       <Modal v-if="isShareModal">
         <template v-slot:data-modal>
-          <span class="url-linkj">{{ bitlyUrl }}</span>
+          <span class="url-link">{{ bitlyUrl }}</span>
         </template>
         <template v-slot:data-modal-btn>
           <button class="modal-btn" @click="copyUrl">Copy link</button>
@@ -27,6 +27,7 @@
         <draggable
           v-model="todoList"
           v-bind="dragOptions"
+          draggable="false"
           :move="onMove"
           @start="isDragging = true"
           @end="isDragging = false"
@@ -66,6 +67,7 @@
         <draggable
           v-model="completedList"
           v-bind="dragOptions"
+          draggable="false"
           :move="onMove"
           @start="isDragging = true"
           @end="isDragging = false"
